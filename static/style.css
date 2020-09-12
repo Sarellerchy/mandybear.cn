@@ -1,0 +1,18 @@
+body            { font-family: sans-serif; background: rgb(229, 229, 229); }
+p               { line-height:10px}
+
+.title{
+    color: #2a2a2a;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+}
+
+.body_back{
+    background-image: url("../static/image/bearbg1.jpg");
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+}
