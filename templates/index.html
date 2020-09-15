@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#" />
     <link rel=stylesheet type=text/css href="../static/style.css">
     <audio autoplay="autoplay" loop="-1" controls="controls">
         <source src="../static/music/bg01.mp3" type="audio/mpeg">
     </audio>
+    <script type="text/javascript" src="../static/source/loginpopup.js"></script>
     <title>mandybear</title>
 </head>
 <body  class="body_back">
-    <button onclick="hello()">test</button>
+    <button id="myBtn" class="login_button">登录自动报告平台</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>弹窗中的文本...</p>
+        </div>
+    </div>
 </body>
 </html>
