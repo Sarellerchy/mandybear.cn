@@ -19,9 +19,9 @@ window.onload = function () {
     }
 
     // 在用户点击其他地方时，关闭弹窗
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 }

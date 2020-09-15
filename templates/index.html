@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+    <meta name='format-detection' content='telephone=no'>
     <link rel="shortcut icon" href="#" />
     <link rel=stylesheet type=text/css href="../static/style.css">
-    <audio autoplay="autoplay" loop="-1" controls="controls">
+    <audio class="backmusic" autoplay="autoplay" loop="-1" controls="controls">
         <source src="../static/music/bg01.mp3" type="audio/mpeg">
     </audio>
     <script type="text/javascript" src="../static/source/loginpopup.js"></script>
@@ -15,7 +19,19 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>弹窗中的文本...</p>
+            <div>
+                <form method="post" class="login_submit">
+                    <div style="padding: 1% 0px">
+                        <label class="label_p" for="username">Username</label>
+                        <input class="login_input" type="text" name="username" placeholder="请输入用户名">
+                    </div>
+                    <div style="padding: 1% 0px">
+                        <label class="label_p" for="password">Password</label>
+                        <input class="login_input" type="text" name="password" placeholder="请输入密码">
+                    </div><br>
+                    <input class="login_submit_button" type="submit" name="submit" value="登录">
+                </form>
+            </div>
         </div>
     </div>
 </body>
