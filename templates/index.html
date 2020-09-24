@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-    <meta name='apple-mobile-web-app-capable' content='yes'>
-    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
-    <meta name='format-detection' content='telephone=no'>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="#" />
     <link rel=stylesheet type=text/css href="../static/style.css">
     <audio class="backmusic" autoplay="autoplay" loop="-1" controls="controls">
@@ -14,25 +11,33 @@
     <script type="text/javascript" src="../static/source/loginpopup.js"></script>
     <title>mandybear</title>
 </head>
-<body  class="body_back">
-    <button id="myBtn" class="login_button">登录自动报告平台</button>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div>
-                <form method="post" class="login_submit">
-                    <div style="padding: 1% 0px">
-                        <label class="label_p" for="username">Username</label>
-                        <input class="login_input" type="text" name="username" placeholder="请输入用户名">
-                    </div>
-                    <div style="padding: 1% 0px">
-                        <label class="label_p" for="password">Password</label>
-                        <input class="login_input" type="text" name="password" placeholder="请输入密码">
-                    </div><br>
-                    <input class="login_submit_button" type="submit" name="submit" value="登录">
-                </form>
+<body>
+    <div style="height: 100%">
+        <button id="myBtn" class="login_button">登录自动报告平台</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+
+                    <form action="{{ url_for('login') }}" method="post" class="login_submit">
+                        <div style="padding: 1% 0px">
+                            <label class="label_p" for="username">Username</label>
+                            <input class="login_input" type="text" name="username" id="username" placeholder="请输入用户名" required>
+                        </div>
+                        <div style="padding: 1% 0px">
+                            <label class="label_p" for="password">Password</label>
+                            <input class="login_input" type="text" name="password" id="password" placeholder="请输入密码" required>
+                        </div><br>
+                        <input class="login_submit_button" type="submit" name="submit" value="登录">
+                        {% for message in get_flashed_messages() %}
+                            <div class="alert">{{ message }}</div>
+                        {% endfor %}
+                        {% block content %}{% endblock %}
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>

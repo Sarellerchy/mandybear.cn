@@ -1,11 +1,17 @@
-body            { font-family: sans-serif; background: rgb(229, 229, 229); }
-p               { line-height:10px}
-
-
-.body_back{
+html{
+    height:100%;
+    font-family: sans-serif;
+    background: rgb(229, 229, 229);
     background-image: url("../static/image/bearbg1.jpg");
     background-repeat:no-repeat;
     background-size: 100% auto;
+}
+
+body{
+    height:100%;
+}
+p{
+    line-height:10px
 }
 
 .login_button{
@@ -17,7 +23,7 @@ p               { line-height:10px}
     text-decoration: none;
     display: inline-block;
     font-size: 1.2vw;
-    border-radius: 4px;
+    border-radius: 0.5vw;
     float: right;
     margin: 1% 1%;
     outline: none;
@@ -56,9 +62,9 @@ p               { line-height:10px}
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 2.6vw;
     font-weight: bold;
-    margin: 12px 30px;
+    margin: 2% 5%;
 }
 
 .close:hover,
@@ -106,6 +112,7 @@ p               { line-height:10px}
 
 .backmusic{
     width: 20%;
+    height: 5%;
     margin: 1% 1%;
     float: left;
 }
