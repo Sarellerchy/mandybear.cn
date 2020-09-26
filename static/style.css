@@ -116,3 +116,154 @@ p{
     margin: 1% 1%;
     float: left;
 }
+
+.tool_navigator{
+    width: 100%;
+    height: 8%;
+    float: top;
+    background: rgb(255, 255, 255);
+    box-shadow:0px 0px 3px 5px #c2c2c2;
+}
+
+
+.tool_title {
+    float: left;
+    padding: 1% 1%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 3vw;
+    text-transform: uppercase;
+    fill: none;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-dasharray: 700 330;
+    stroke-dashoffset: 0;
+    animation: stroke 6s infinite;
+    margin: 0 1%;
+}
+
+.tool_title:nth-child(5n + 1) {
+    stroke: rgba(165, 42, 42, 0.64);
+    animation-delay: -1.5s;
+}
+
+.tool_title:nth-child(5n + 2) {
+    stroke: rgba(165, 42, 42, 0.68);
+    animation-delay: -3s;
+}
+.tool_title:nth-child(5n + 3) {
+    stroke: rgba(165, 42, 42, 0.8);
+    animation-delay: -4.5s;
+}
+
+.tool_title:nth-child(5n + 4) {
+    stroke: rgba(165, 42, 42, 0.93);
+    animation-delay: -6s;
+}
+
+.tool_title:nth-child(5n + 5) {
+    stroke: brown;
+    animation-delay: -7.5s;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: -400;
+    }
+}
+
+.form_layout{
+    width: 10%;
+    height: 100%;
+    float: right;
+}
+
+.button_layout{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2vw;
+    outline: none;
+}
+
+.button_layout:hover {
+    background-color: brown;
+    color: white;
+}
+
+.tool_content{
+    float: bottom;
+    width: 98%;
+    height: 88%;
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+.tool_content_left{
+    width: 48%;
+    height: 100%;
+    float: left;
+    background-color: white;
+}
+
+@keyframes animated-border {
+  0% {
+      box-shadow: 0 0 0 0 rgba(255,255,255,0.4);
+  }
+  100% {
+      box-shadow: 0 0 0 20px rgba(255,255,255,0);
+  }
+}
+.tool_content_right {
+    width: 51%;
+    height: 100%;
+    animation: animated-border 1.5s infinite;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 15px;
+    float: right;
+}
+
+.tool_data_upload{
+    width: 95%;
+    height: 8%;
+    float: left;
+    margin: 1% 1%;
+}
+
+.tool_data_upload_button{
+    width: 60%;
+    margin: 1% 2%;
+    float: left;
+}
+
+.tool_chart_submint{
+    float: right;
+    width: 25%;
+    height: 80%;
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 1% 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2vw;
+    outline: none;
+}
+
+.tool_chart_title{
+    width: 100%;
+    text-align: center;
+    margin-top:1%;
+    font-size: 1.6vw;
+    color: #333333;
+}

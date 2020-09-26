@@ -1,14 +1,85 @@
-<!DOCTYPE html>
-<html lang="en" style="background: rgb(229, 229, 229);">
+<html lang="en" style="background: rgb(229,229,229);">
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel=stylesheet type=text/css href="../static/style.css">
+    <script type="text/javascript" src="../static/incubator-echarts/dist/echarts.js"></script>
+    <script type="text/javascript" src="../static/echarts-wordcloud-master/dist/echarts-wordcloud.min.js"></script>
     <title>Title</title>
 </head>
-<body>
-<form action="{{ url_for('logout') }}">
-    <input class="login_button" type="submit" name="submit" value="退出账号">
-</form>
-
+<body style="margin: 0 0;background: rgb(229,229,229);" >
+    <div class="tool_navigator">
+        <svg width="50%" height="100%" viewBox="0 0 100% 100%">
+	        <symbol id="id">
+	            <text class="tool_title" dy="1em">Auto Report Platform</text>
+	        </symbol>
+	        <use class="tool_title" xlink:href="#id"></use>
+	        <use class="tool_title" xlink:href="#id"></use>
+	        <use class="tool_title" xlink:href="#id"></use>
+	        <use class="tool_title" xlink:href="#id"></use>
+	        <use class="tool_title" xlink:href="#id"></use>
+        </svg>
+        <form class="form_layout" action="{{ url_for('logout') }}">
+            <input class="button_layout" type="submit" name="submit" value="退出账号">
+        </form>
+    </div>
+    <div class="tool_content">
+        <div class="tool_content_right">
+            <label class="tool_chart_title">词云图</label>
+            <div id="wordcloud" style="width: 100%; height: 90%"></div>
+            <script>
+                onload = function () {
+                    var data = {
+                        value: [{% for item in wordclouddata %}{"value":{{item.value}},"name":"{{item.label}}"},{% endfor %}],
+                        image: "data:image/png;base64,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"
+                    }
+                    var myChart = echarts.init(document.getElementById('wordcloud'));
+                    var maskImage = new Image();
+                    maskImage.src = data.image
+                        maskImage.onload = function () {
+                        myChart.setOption({
+                            backgroundColor: 'transparent',
+                            tooltip: {
+                                show: false
+                            },
+                            series: [{
+                                type: 'wordCloud',
+                                gridSize: 1,
+                                sizeRange: [12, 55],
+                                rotationRange: [0, 0],
+                                maskImage: maskImage,
+                                textStyle: {
+                                    normal: {
+                                        color: function () {
+                                            return 'rgb(' +
+                                                Math.round(Math.random() * 255) +
+                                                ', ' + Math.round(Math.random() * 255) +
+                                                ', ' + Math.round(Math.random() * 255) + ')'
+                                        }
+                                    }
+                                },
+                                left: 'center',
+                                top: 'center',
+                                right: null,
+                                bottom: null,
+                                data: data.value
+                            }]
+                        })
+                    }
+                }
+            </script>
+        </div>
+        <div class="tool_content_left">
+            <label style="margin: 2% 2%;font-size: 1.2vw">请上传excel数据</label>
+            <form class="tool_data_upload" action="{{ url_for('data_get') }}"  enctype='multipart/form-data' method="post">
+                <input type="file" class="tool_data_upload_button"
+                       accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                       name="file">
+                <input class="tool_chart_submint" type="submit" name="submit" value="生成图表">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
