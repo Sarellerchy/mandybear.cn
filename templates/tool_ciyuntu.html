@@ -76,7 +76,7 @@
             <form class="tool_data_upload" action="{{ url_for('data_get') }}"  enctype='multipart/form-data' method="post">
                 <input type="file" class="tool_data_upload_button"
                        accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                       name="file">
+                       name="file" required>
                 <input class="tool_chart_submint" type="submit" name="submit" value="生成图表">
             </form>
         </div>
